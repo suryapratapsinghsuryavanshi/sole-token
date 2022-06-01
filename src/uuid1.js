@@ -37,7 +37,7 @@ let getUUID1 = () => {
 
     let node_id = networkInterfaces();
 
-    return [time_low.toString(16), time_mid.toString(16), time_high_and_version.toString(16), final_time_seq.toString(16).length < 4 ? '0' + final_time_seq.toString(16) : final_time_seq.toString(16), node_id['vEthernet (Default Switch)'][0].mac.replace(/:/g, '')];
+    return [time_low.toString(16), time_mid.toString(16), time_high_and_version.toString(16), final_time_seq.toString(16).length < 4 ? '0' + final_time_seq.toString(16) : final_time_seq.toString(16), node_id['eth1'][0].mac.replace(/:/g, '')];
 }
 
 module.exports = {

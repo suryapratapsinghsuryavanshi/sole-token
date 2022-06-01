@@ -22,7 +22,7 @@ test("Test: UUID-1: test size params auto use token method", () => {
 
 test("Test: UUID-1: test mac address of UUID-1", () => {
 	const node_id = networkInterfaces();
-	expect(soleToken({ type: 'uuid1' }).slice(24, 36)).toBe(node_id['vEthernet (Default Switch)'][0].mac.replace(/:/g, ''));
+	expect(soleToken({ type: 'uuid1' }).slice(24, 36)).toBe(node_id['eth1'][0].mac.replace(/:/g, ''));
 });
 
 // Test UUID-4
@@ -32,7 +32,7 @@ test("Test: UUID-4: normal use case", () => {
 
 test("Test: UUID-4: test mac address of UUID-4", () => {
 	const node_id = networkInterfaces();
-	expect(soleToken({ type: 'uuid4' }).slice(24, 36)).not.toBe(node_id['vEthernet (Default Switch)'][0].mac.replace(/:/g, ''));
+	expect(soleToken({ type: 'uuid4' }).slice(24, 36)).not.toBe(node_id['eth1'][0].mac.replace(/:/g, ''));
 });
 
 // Test Token
