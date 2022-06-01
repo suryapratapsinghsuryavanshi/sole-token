@@ -36,7 +36,7 @@ const soleToken = ({ type = 'uuid4', delimiter = '-', size = 32 }) => {
 				return formate(uuid4(), '')
 		}
 	}else {
-		throw new Error('The size of the UUID or token are not supported!');
+		throw 'The size of the UUID or token are not supported!';
 	}
 }
 
