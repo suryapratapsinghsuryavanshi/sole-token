@@ -1,5 +1,6 @@
 ![logo](/static/logo.svg)
-A unique token generator NPM package!
+
+> A unique token generator NPM package!
 
 <b>📦 Install with the help of npm or yarn</b>
 
