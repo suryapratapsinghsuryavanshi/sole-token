@@ -5,7 +5,7 @@
  */
 
 const { networkInterfaces } = require('os');
-const { soleToken } = require('../index');
+const soleToken = require('../index');
 
 // Test UUID-1
 test("Test: UUID-1: test size params auto use token method", () => {
