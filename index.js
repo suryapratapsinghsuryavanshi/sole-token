@@ -15,6 +15,9 @@ const uuid1 = require('./src/uuid1').getUUID1;
 // Generate version-4 UUID.
 const uuid4 = require('./src/uuid4').uuid4;
 
+// Generate ID's.
+const ids = require('./src/num');
+
 /**
  * Generate UUID1 and UUID-4 or Token type unique value for your various works.
  * @param {String} param0 pass function type or uuid type.
@@ -23,9 +26,9 @@ const uuid4 = require('./src/uuid4').uuid4;
  * @return {String} Return a unique token or UUID value.
  */
 const soleToken = ({ type = 'uuid4', delimiter = '-', size = 32 }) => {
-	if(size < 32) {
+	if(size < 32 && type !== 'id') {
 		return formate(uuid4(), '').slice(0, size);
-	}else if(size === 32) {
+	}else if(size === 32 || type === 'id') {
 		switch(type) {
 			case 'uuid1':
 				return formate(uuid1(), delimiter);
@@ -34,12 +37,12 @@ const soleToken = ({ type = 'uuid4', delimiter = '-', size = 32 }) => {
 			// Generate unofficial UUID or token.
 			case 'token':
 				return formate(uuid4(), '')
+			case 'id':
+				return ids().slice(0, size);
 		}
 	}else {
 		throw 'The size of the UUID or token are not supported!';
 	}
 }
 
-module.exports = {
-	soleToken
-}
+module.exports = soleToken;
