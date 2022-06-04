@@ -20,12 +20,15 @@ const ids = require('./src/num');
 
 /**
  * Generate UUID1 and UUID-4 or Token type unique value for your various works.
- * @param {String} param0 pass function type or uuid type.
- * @param {String} param1 pass the delimiter between UUID.
- * @param {Number} param2 pass the size of the UUID, only work on token type.
+ * @param {Object} param0 configuration object.
  * @return {String} Return a unique token or UUID value.
  */
-const soleToken = ({ type = 'uuid4', delimiter = '-', size = 32 }) => {
+const soleToken = (config) => {
+	config = { ...{ type: 'uuid4', delimiter: '-', size: 32 }, ...config };
+	size = config.size;
+	delimiter = config.delimiter;
+	type = config.type;
+
 	if(size < 32 && type !== 'id') {
 		return formate(uuid4(), '').slice(0, size);
 	}else if(size === 32 || type === 'id') {
@@ -45,4 +48,6 @@ const soleToken = ({ type = 'uuid4', delimiter = '-', size = 32 }) => {
 	}
 }
 
-module.exports = soleToken;
+module.exports = {
+	soleToken
+};
