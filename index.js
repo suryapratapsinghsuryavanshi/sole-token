@@ -23,11 +23,11 @@ const ids = require('./src/num');
  * @param {Object} param0 configuration object.
  * @return {String} Return a unique token or UUID value.
  */
-const soleToken = (config) => {
-	config = { ...{ type: 'uuid4', delimiter: '-', size: 32 }, ...config };
-	size = config.size;
-	delimiter = config.delimiter;
-	type = config.type;
+const soleToken = (n_config) => {
+	let config = { ...{ type: 'uuid4', delimiter: '-', size: 32 }, ...n_config };
+	let size = config.size;
+	let delimiter = config.delimiter;
+	let type = config.type;
 
 	if(size < 32 && type !== 'id') {
 		return formate(uuid4(), '').slice(0, size);
